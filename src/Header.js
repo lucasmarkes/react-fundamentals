@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./App";
 
+import "./Header.css";
+
 export default function Header(props) {
   const { onToggleTheme, theme } = useContext(ThemeContext);
   return (
     <header>
-      <h1>Lucas Blog</h1>
+      <h1 className="title">Lucas Blog</h1>
       <button
         onClick={onToggleTheme}
         style={{
