@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./App";
 
-import "./Header.css";
+import "./Header.scss";
 
 export default function Header(props) {
   const { onToggleTheme, theme } = useContext(ThemeContext);
