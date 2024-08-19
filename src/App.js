@@ -11,18 +11,21 @@ function App() {
       title: "Hello, world#1",
       content: "Hello, world",
       read: true,
+      removed: true,
     },
     {
       id: Math.random(),
       title: "Hello, world#2",
       content: "Hello, world",
       read: false,
+      removed: false,
     },
     {
       id: Math.random(),
       title: "Hello, world#3",
       content: "Hello, world",
       read: false,
+      removed: false,
     },
   ]);
 
@@ -40,7 +43,7 @@ function App() {
     ]);
   };
 
-  const handleRemove = (postId) => {
+   const handleRemove = (postId) => {
     setPosts((prevState) => prevState.filter((post) => post.id !== postId));
   };
 
