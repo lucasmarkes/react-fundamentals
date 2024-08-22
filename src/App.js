@@ -44,7 +44,12 @@ function App() {
   };
 
    const handleRemove = (postId) => {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+     setPosts((prevState) => prevState.map(
+      post => (
+         post.id === postId
+           ? { ...post, removed: true }
+           : post
+     )));
   };
 
   const handleToggleTheme = () => {
@@ -69,6 +74,7 @@ function App() {
             title={post.title}
             content={post.content}
             onRemove={handleRemove}
+            removed={post.removed}
           />
         ))}
       </ThemeContext.Provider>

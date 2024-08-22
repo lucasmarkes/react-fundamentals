@@ -4,8 +4,6 @@ import { ThemeContext } from "./App";
 import styles from './Header.scss';
 
 export default function Header(props) {
-  console.log({styles});
-
   const { onToggleTheme, theme } = useContext(ThemeContext);
   return (
     <header>
