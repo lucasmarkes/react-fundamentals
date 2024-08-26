@@ -1,8 +1,7 @@
-import React, { createContext, useState } from "react";
-import Header from "./Header";
-import Post from "./Post";
-
-export const ThemeContext = createContext("dark");
+import React, { useState } from "react";
+import { ThemeProvider } from '../contexts/ThemeContext';
+import Header from "./Header/Header";
+import Post from "./Post/Post";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -29,8 +28,6 @@ function App() {
     },
   ]);
 
-  const [theme, setTheme] = useState("dark");
-
   const handleRefresh = () => {
     setPosts((prevState) => [
       ...prevState,
@@ -50,20 +47,11 @@ function App() {
            ? { ...post, removed: true }
            : post
      )));
-  };
-
-  const handleToggleTheme = () => {
-    setTheme((prevState) => (prevState === "dark" ? "light" : "dark"));
-  };
-
+   };
+  
   return (
     <>
-      <ThemeContext.Provider
-        value={{
-          theme,
-          onToggleTheme: handleToggleTheme,
-        }}
-      >
+      <ThemeProvider>
         <Header />
         <button onClick={handleRefresh}>Refresh</button>
         {posts.map((post, index) => (
@@ -77,7 +65,7 @@ function App() {
             removed={post.removed}
           />
         ))}
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </>
   );
 }

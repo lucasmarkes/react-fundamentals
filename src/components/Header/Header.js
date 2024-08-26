@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./App";
-
+import { ThemeContext } from "../../contexts/ThemeContext";
 import styles from './Header.scss';
 
 export default function Header(props) {
